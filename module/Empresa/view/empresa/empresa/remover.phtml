@@ -1,0 +1,20 @@
+<?php
+
+$title = "Remova uma empresa:";
+$this->headTitle($title);
+
+?>
+
+<h2 class="mt-3"><?= $this->escapeHtml($title) ?></h2>
+
+<p>
+    Você deseja realmente excluir <strong> <?= $this->escapeHtml($empresa->getName()) ?> </strong>
+</p>
+
+<form method="post" action="<?= $this->url('empresa', ['action' => 'remover', 'id' => $id]) ?>">
+    <div class="form-group">
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <input type="submit" class="btn btn-danger" name="del" value="REMOVER">
+        <input type="submit" class="btn btn-success" name="del" value="CANCELAR">
+    </div>
+</form>

@@ -1,0 +1,70 @@
+<?php
+
+$title = 'Adicione um novo proprietario:';
+$this->headTitle($title);
+
+?>
+
+<h1><?= $this->escapeHtml($title) ?></h1>
+
+<?php
+
+$name = $form->get('name');
+$name->setAttribute('class', 'form-control');
+$name->setAttribute('placeholder', 'Nome completo');
+
+$cpf = $form->get('cpf');
+$cpf->setAttribute('class', 'form-control');
+$cpf->setAttribute('placeholder', 'xxx-xxx-xxx-xx');
+
+$phone = $form->get('phone');
+$phone->setAttribute('class', 'form-control');
+$phone->setAttribute('placeholder', '(xx) xxxxx-xxxx');
+
+$email = $form->get('email');
+$email->setAttribute('class', 'form-control');
+$email->setAttribute('placeholder', 'exemplo@gmail.com');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-success');
+
+$form->setAttribute('action', $this->url('proprietario', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+?>
+
+<div class="form-group">
+    <?= $this->formLabel($name) ?>
+    <?= $this->formElement($name) ?>
+    <?= $this->formElementErrors()->render($name, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($cpf) ?>
+    <?= $this->formElement($cpf) ?>
+    <?= $this->formElementErrors()->render($cpf, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($phone) ?>
+    <?= $this->formElement($phone) ?>
+    <?= $this->formElementErrors()->render($phone, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($email) ?>
+    <?= $this->formElement($email) ?>
+    <?= $this->formElementErrors()->render($email, ['class' => 'help-block']) ?>
+</div>
+<div class="form-group">
+
+    <?php
+    echo $this->formSubmit($submit);
+    echo $this->formHidden($form->get('id'));
+    echo $this->form()->closeTag();
+    ?>
+
+    <a href="<?= $this->url('proprietario', ['action' => 'index']) ?>" class="btn btn-danger btn-md">Voltar</a>
+</div>

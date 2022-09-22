@@ -1,0 +1,33 @@
+<?php
+$title = 'Lista de Empresas';
+$this->headTitle($title);
+?>
+
+<h1 class="mt-3 mb-3">Lista de Empresas: </h1>
+<a href="<?= $this->url('empresa', ['action' => 'adicionar']) ?>" class="btn btn-success btn-md">Adicionar</a>
+
+<table class="table table-stripped">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CPNJ</th>
+        <th>Endereço</th>
+    </tr>
+
+    <?php foreach ($empresas as $emp) : ?>
+        <tr>
+            <td> <?= $emp->getId() ?> </td>
+            <td> <?= $emp->getName() ?> </td>
+            <td> <?= $emp->getCnpj() ?> </td>
+            <td> <?= $emp->getAddress() ?> </td>
+            <td>
+                <a href="<?= $this->url('empresa', ['action' => 'editar', 'id' => $emp->getId()]) ?>" class="btn btn-primary">
+                    Edit
+                </a>
+                <a href="<?= $this->url('empresa', ['action' => 'remover', 'id' => $emp->getId()]) ?>" class="btn btn-danger">
+                    Del
+                </a>
+            </td>
+        </tr>
+    <?php endforeach ?>
+</table>

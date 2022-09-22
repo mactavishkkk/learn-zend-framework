@@ -1,0 +1,69 @@
+<?php
+
+$title = "Adicione uma nova empresa:";
+$this->headTitle($title);
+
+?>
+
+<h1><?= $this->escapeHtml($title) ?></h1>
+
+<?php
+
+$form->setAttribute('action', $this->url('empresa', ['action' => 'adicionar']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+$id = $this->form->get('id');
+$name = $this->form->get('name');
+$cnpj = $this->form->get('cnpj');
+$address = $this->form->get('address');
+$submit = $this->form->get('submit');
+
+$name->setAttribute('class', 'form-control');
+$name->setAttribute('autofocus', 'autofocus');
+
+$cnpj->setAttribute('class', 'form-control');
+$cnpj->setAttribute('autofocus', 'autofocus');
+
+$address->setAttribute('class', 'form-control');
+$address->setAttribute('autofocus', 'autofocus');
+
+$submit->setAttribute('class', 'btn btn-success btn-md');
+
+?>
+
+<hr>
+<?= $this->formElement($id) ?>
+
+<div class="form-group">
+    <div class="col-md-3">
+        <?= $this->formLabel($name) ?>
+        <?= $this->formElement($name) ?>
+        <?= $this->formElementErrors()->render($name, ['class' => 'help-block']) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-2">
+        <?= $this->formLabel($cnpj) ?>
+        <?= $this->formElement($cnpj) ?>
+        <?= $this->formElementErrors()->render($cnpj, ['class' => 'help-block']) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+        <?= $this->formLabel($address) ?>
+        <?= $this->formElement($address) ?>
+        <?= $this->formElementErrors()->render($address, ['class' => 'help-block']) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+        <?= $this->formElement($submit) ?>
+        <a href="<?= $this->url('empresa', ['action' => 'index']) ?>" class="btn btn-danger btn-md">Voltar</a>
+    </div>
+</div>
+<hr>
