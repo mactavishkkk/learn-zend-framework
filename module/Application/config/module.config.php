@@ -10,7 +10,6 @@ namespace Application;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Proprietario\Controller\ProprietarioController;
 
 return [
     'router' => [
@@ -20,7 +19,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => ProprietarioController::class,
+                        'controller' => Controller\IndexController::class,
                         'action'     => 'index',
                     ],
                 ],

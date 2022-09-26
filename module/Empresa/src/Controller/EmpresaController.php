@@ -25,7 +25,7 @@ class EmpresaController extends AbstractActionController
     public function adicionarAction()
     {
         $form = new EmpresaForm();
-        $form->get('submit')->setValue('Adicionar');
+        $form->get('submit')->setValue('Add');
         $request = $this->getRequest();
 
         if (!$request->isPost()) {
@@ -59,7 +59,7 @@ class EmpresaController extends AbstractActionController
 
         $form = new EmpresaForm();
         $form->bind($empresa);
-        $form->get('submit')->setAttribute('value', 'Salvar');
+        $form->get('submit')->setAttribute('value', 'Save');
         $request = $this->getRequest();
         $viewData = ['id' => $id, 'form' => $form];
 
@@ -87,9 +87,9 @@ class EmpresaController extends AbstractActionController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $del = $request->getPost('del', 'CANCELAR');
+            $del = $request->getPost('del', 'Delete');
             
-            if ($del === 'REMOVER') {
+            if ($del === 'Delete') {
                 $id = (int) $request->getPost('id');
                 $this->table->deletarEmpresa($id);
             }

@@ -14,7 +14,7 @@ $this->headTitle($title);
 <form method="post" action="<?= $this->url('empresa', ['action' => 'remover', 'id' => $id]) ?>">
     <div class="form-group">
         <input type="hidden" name="id" value="<?= $id ?>">
-        <input type="submit" class="btn btn-danger" name="del" value="REMOVER">
-        <input type="submit" class="btn btn-success" name="del" value="CANCELAR">
+        <input type="submit" class="btn btn-danger" name="del" value="Delete">
+        <input type="submit" class="btn btn-success" name="del" value="Cancel">
     </div>
 </form>

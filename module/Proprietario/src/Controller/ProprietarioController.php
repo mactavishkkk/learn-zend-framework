@@ -27,7 +27,7 @@ class ProprietarioController extends AbstractActionController
     public function addAction()
     {
         $form = new ProprietarioForm();
-        $form->get('submit')->setValue('Adicionar');
+        $form->get('submit')->setValue('Add');
 
         $request = $this->getRequest();
 
@@ -94,9 +94,9 @@ class ProprietarioController extends AbstractActionController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $del = $request->getPost('del', 'Cancelar');
+            $del = $request->getPost('del', 'Cancel');
 
-            if($del == 'Excluir') {
+            if($del == 'Delete') {
                 $id = (int) $request->getPost('id');
                 $this->table->deleteProprietario($id);
             }
