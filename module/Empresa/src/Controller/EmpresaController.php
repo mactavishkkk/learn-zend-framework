@@ -19,7 +19,15 @@ class EmpresaController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel(['empresas' => $this->table->getAll()]);
+        $paginator = $this->table->fetchAll(true);
+
+        $page = (int) $this->params()->fromQuery('page', 1);
+        $page = ($page < 1) ? 1 : $page;
+        $paginator->setCurrentPageNumber($page);
+
+        $paginator->setItemCountPerPage(15);
+
+        return new ViewModel(['paginator' => $paginator]);
     }
 
     public function adicionarAction()

@@ -19,9 +19,16 @@ class ProprietarioController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel([
-            'proprietarios' => $this->table->fetchAll(),
-        ]);
+
+        $paginator = $this->table->fetchAll(true);
+
+        $page = (int) $this->params()->fromQuery('page', 1);
+        $page = ($page < 1) ? 1 : $page;
+        $paginator->setCurrentPageNumber($page);
+
+        $paginator->setItemCountPerPage(15);
+
+        return new ViewModel(['paginator' => $paginator]);
     }
 
     public function addAction()
@@ -96,7 +103,7 @@ class ProprietarioController extends AbstractActionController
         if ($request->isPost()) {
             $del = $request->getPost('del', 'Cancel');
 
-            if($del == 'Delete') {
+            if ($del == 'Delete') {
                 $id = (int) $request->getPost('id');
                 $this->table->deleteProprietario($id);
             }
