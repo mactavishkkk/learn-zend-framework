@@ -2,7 +2,6 @@
 
 return [
     'Zend\Paginator',
-    'Zend\Navigation',
     'Zend\InputFilter',
     'Zend\Filter',
     'Zend\Hydrator',
