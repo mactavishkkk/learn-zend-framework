@@ -47,7 +47,7 @@ class ProprietarioTableTest extends TestCase
         $this->proprietarioTable->saveProprietario($proprietario);
     }
 
-    public function testSaveProprietarioWillUpdateExistingAlbumsIfTheyAlreadyHaveAnId()
+    public function testSaveProprietarioWillUpdateExistingProprietariosIfTheyAlreadyHaveAnId()
     {
         $data = [
             'id'     => 123,

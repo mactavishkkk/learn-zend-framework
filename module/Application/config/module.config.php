@@ -55,26 +55,47 @@ return [
     'navigation' => [
         'default' => [
             [
-                'label' => 'Home',
+                'label' => 'Home ',
                 'route' => 'home',
             ],
             [
-                'label' => 'Album',
-                'route' => 'album',
+                'label' => 'Proprietários ',
+                'route' => 'proprietario',
                 'pages' => [
                     [
                         'label'  => 'Add',
-                        'route'  => 'album',
+                        'route'  => 'proprietario',
                         'action' => 'add',
                     ],
                     [
                         'label'  => 'Edit',
-                        'route'  => 'album',
+                        'route'  => 'proprietario',
                         'action' => 'edit',
                     ],
                     [
                         'label'  => 'Delete',
-                        'route'  => 'album',
+                        'route'  => 'proprietario',
+                        'action' => 'delete',
+                    ],
+                ],
+            ],
+            [
+                'label' => 'Empresas ',
+                'route' => 'empresa',
+                'pages' => [
+                    [
+                        'label'  => 'Add',
+                        'route'  => 'empresa',
+                        'action' => 'add',
+                    ],
+                    [
+                        'label'  => 'Edit',
+                        'route'  => 'empresa',
+                        'action' => 'edit',
+                    ],
+                    [
+                        'label'  => 'Delete',
+                        'route'  => 'empresa',
                         'action' => 'delete',
                     ],
                 ],

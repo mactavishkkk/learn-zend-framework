@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Zend\Navigation',
     'Zend\Paginator',
     'Zend\InputFilter',
     'Zend\Filter',

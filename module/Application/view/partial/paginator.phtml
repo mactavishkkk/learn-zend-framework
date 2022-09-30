@@ -5,14 +5,12 @@
             <?php if (isset($this->previous)) : ?>
                 <li>
                     <a href="<?= $this->url($this->route, [], ['query' => ['page' => $this->previous]]) ?>">
-                        &lt;&lt;
-                    </a>
+                        <-- </a>
                 </li>
             <?php else : ?>
                 <li class="disabled">
                     <a href="#">
-                        &lt;&lt;
-                    </a>
+                        <-- </a>
                 </li>
             <?php endif ?>
 
@@ -35,13 +33,13 @@
             <?php if (isset($this->next)) : ?>
                 <li>
                     <a href="<?= $this->url($this->route, [], ['query' => ['page' => $this->next]]) ?>">
-                        &gt;&gt;
+                        -->
                     </a>
                 </li>
             <?php else : ?>
                 <li class="disabled">
                     <a href="#">
-                        &gt;&gt;
+                        -->
                     </a>
                 </li>
             <?php endif ?>

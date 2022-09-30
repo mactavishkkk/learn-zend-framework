@@ -28,7 +28,7 @@ return [
     ],
     'view_manager' => [
         'template_path_stack' => [
-            'empresa' => __DIR__ . '/../view'
+            __DIR__ . '/../view'
         ]
     ]
 ];
